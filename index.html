@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MTZ Designs Studio | Cocinas y Clósets a Medida</title>
 
-  <meta name="description" content="Diseño 3D profesional, fabricación propia e instalación en Ciudad Juárez. Cocinas, clósets y muebles a medida." />
+  <meta name="description" content="Cocinas, clósets y muebles a medida en Ciudad Juárez. Diseño 3D profesional, fabricación propia e instalación especializada. Cotiza por WhatsApp o formulario en línea." />
   <meta name="theme-color" content="#0b1220" />
 
   <style>
@@ -17,13 +17,10 @@
       --line:rgba(255,255,255,.10);
       --brand:#2563eb;      /* azul */
       --wa:#22c55e;         /* whatsapp */
-      --ig:#e1306c;
-      --fb:#1877f2;
       --shadow: 0 10px 30px rgba(0,0,0,.35);
       --radius: 18px;
       --max: 1100px;
     }
-
     *{box-sizing:border-box}
     body{
       margin:0;
@@ -35,6 +32,8 @@
     }
     a{color:inherit}
     .wrap{max-width:var(--max); margin:0 auto; padding:24px}
+
+    /* Top bar */
     .topbar{
       display:flex; align-items:center; justify-content:space-between;
       gap:14px; padding:14px 18px;
@@ -44,7 +43,7 @@
       border-radius: 999px;
     }
     .brand{
-      display:flex; align-items:center; gap:10px; font-weight:700; letter-spacing:.2px;
+      display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:.2px;
     }
     .logo{
       width:34px; height:34px; border-radius:10px;
@@ -61,6 +60,7 @@
       background: rgba(11,18,32,.35);
     }
 
+    /* Hero */
     .hero{
       margin-top:18px;
       border:1px solid var(--line);
@@ -68,8 +68,19 @@
       border-radius: var(--radius);
       box-shadow: var(--shadow);
       overflow:hidden;
+      position:relative;
+    }
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      background: radial-gradient(700px 350px at 20% 0%, rgba(37,99,235,.25), transparent 60%),
+                  radial-gradient(650px 320px at 95% 10%, rgba(34,197,94,.18), transparent 55%);
+      pointer-events:none;
+      opacity:.9;
     }
     .hero-inner{
+      position:relative;
       display:grid;
       grid-template-columns: 1.1fr .9fr;
       gap:18px;
@@ -89,7 +100,7 @@
     }
     .cta-row{
       display:flex; gap:12px; flex-wrap:wrap;
-      margin-top:16px;
+      margin-top:12px;
     }
     .btn{
       display:inline-flex; align-items:center; justify-content:center;
@@ -97,16 +108,17 @@
       padding:14px 16px;
       border-radius: 14px;
       text-decoration:none;
-      font-weight:700;
+      font-weight:800;
       border:1px solid transparent;
       transition: transform .12s ease, opacity .12s ease, border .12s ease;
       min-width: 220px;
+      white-space:nowrap;
     }
     .btn:hover{transform: translateY(-1px); opacity:.95}
     .btn:active{transform: translateY(0px); opacity:.9}
 
-    .btn-wa{background: rgba(34,197,94,.95); color:#07130b;}
-    .btn-form{background: rgba(37,99,235,.95);}
+    .btn-wa{background: rgba(34,197,94,.95); color:#06130b;}
+    .btn-form{background: rgba(37,99,235,.95); color:#eef4ff;}
     .btn-ghost{
       background: rgba(11,18,32,.25);
       border-color: var(--line);
@@ -124,6 +136,7 @@
     .hero-card ul{margin:0; padding-left:18px; color:var(--muted); line-height:1.6}
     .hero-card li{margin:6px 0}
 
+    /* Sections */
     .section{
       margin-top:18px;
       border:1px solid var(--line);
@@ -135,6 +148,7 @@
     .section h2{margin:0 0 8px 0; font-size:22px}
     .section p{margin:0 0 16px 0; color:var(--muted); line-height:1.6}
 
+    /* Link tiles */
     .grid3{
       display:grid;
       grid-template-columns: repeat(3, 1fr);
@@ -150,6 +164,7 @@
       align-items:center;
       text-decoration:none;
       transition: transform .12s ease, opacity .12s ease, border .12s ease;
+      min-height: 76px;
     }
     .tile:hover{transform: translateY(-1px); opacity:.95}
     .ico{
@@ -157,11 +172,13 @@
       display:grid; place-items:center;
       background: rgba(255,255,255,.06);
       border:1px solid var(--line);
-      font-weight:800;
+      font-weight:900;
+      text-transform:lowercase;
     }
     .tile b{display:block; margin-bottom:2px}
     .tile small{color:var(--muted)}
 
+    /* Gallery */
     .gallery{
       display:grid;
       grid-template-columns: repeat(3, 1fr);
@@ -189,6 +206,7 @@
       backdrop-filter: blur(6px);
     }
 
+    /* Fine print & footer */
     .fine{
       margin-top:14px;
       color: var(--muted);
@@ -197,12 +215,35 @@
       border-top:1px solid var(--line);
       padding-top:12px;
     }
-
     footer{
       margin:18px 0 30px;
       color: var(--muted);
       text-align:center;
       font-size: 13px;
+    }
+
+    /* WhatsApp floating */
+    .wa-float{
+      position:fixed;
+      right:16px;
+      bottom:16px;
+      z-index:50;
+      text-decoration:none;
+      background: rgba(34,197,94,.98);
+      color:#06130b;
+      border-radius: 999px;
+      padding: 12px 14px;
+      font-weight:900;
+      box-shadow: 0 12px 30px rgba(0,0,0,.35);
+      border: 1px solid rgba(255,255,255,.16);
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+    }
+    .wa-dot{
+      width:10px; height:10px; border-radius:999px;
+      background:#06130b;
+      opacity:.85;
     }
 
     @media (max-width: 920px){
@@ -221,7 +262,7 @@
 
     <div class="topbar">
       <div class="brand">
-        <div class="logo"></div>
+        <div class="logo" aria-hidden="true"></div>
         <div>MTZ Designs Studio</div>
       </div>
       <div class="pill">
@@ -236,25 +277,25 @@
         <div>
           <h1 class="h-title">Cocinas y Clósets a Medida</h1>
           <p class="h-sub">
-            Diseñamos en 3D, fabricamos e instalamos con acabados limpios y materiales de calidad.
-            Atención personalizada en Ciudad Juárez.
+            Diseño 3D profesional, fabricación propia e instalación especializada.
+            Enfoque premium y comunicación clara para que tu proyecto salga bien desde el inicio.
           </p>
 
           <div class="cta-row">
-            <!-- CTA 1: WhatsApp -->
-            <a class="btn btn-wa" target="_blank"
-               href="https://wa.me/526562467313?text=Hola%20MTZ%20Designs%20Studio%2C%20quiero%20cotizar%20un%20proyecto.">
+            <!-- CTA 1: WhatsApp (principal) -->
+            <a class="btn btn-wa" target="_blank" rel="noopener"
+               href="https://wa.me/526562467313?text=Hola%20MTZ%20Designs%20Studio%2C%20quiero%20cotizar%20un%20proyecto.%20%C2%BFMe%20pueden%20apoyar%20por%20favor%3F">
               Cotizar por WhatsApp
             </a>
 
             <!-- CTA 2: Form -->
-            <a class="btn btn-form" target="_blank"
+            <a class="btn btn-form" target="_blank" rel="noopener"
                href="https://docs.google.com/forms/d/e/1FAIpQLSeZZUdsGD3stz_WkiL8QwCiDGeHLVcNo_EZthaX6XdCUwPdbg/viewform?pli=1">
               Llenar Formulario (rápido)
             </a>
 
             <!-- CTA secundario: Linktree -->
-            <a class="btn btn-ghost" target="_blank"
+            <a class="btn btn-ghost" target="_blank" rel="noopener"
                href="https://linktr.ee/mtz.designs.studio?utm_source=linktree_profile_share&ltsid=1683ef26-dfe2-4b4a-b020-9ece38bde9c9">
               Ver todos los enlaces
             </a>
@@ -268,22 +309,21 @@
         <div class="hero-card">
           <h3>Qué puedes esperar</h3>
           <ul>
-            <li>Propuesta con diseño 3D según tu espacio.</li>
-            <li>Materiales: melamina / madera (según proyecto).</li>
+            <li>Diseño 3D según tu espacio y necesidades.</li>
+            <li>Opciones de acabados y herrajes según presupuesto.</li>
             <li>Instalación profesional y ordenada.</li>
-            <li>Comunicación clara y tiempos reales.</li>
+            <li>Atención local en Ciudad Juárez.</li>
           </ul>
         </div>
       </div>
     </section>
 
-    <!-- Sección: Enlaces principales (se ve “pro”, no como lista) -->
     <section class="section">
-      <h2>Redes oficiales</h2>
-      <p>Si quieres ver proyectos, reseñas y avances, aquí están nuestras páginas principales.</p>
+      <h2>Enlaces oficiales</h2>
+      <p>Para ver proyectos, avances y reseñas, visita nuestras páginas principales.</p>
 
       <div class="grid3">
-        <a class="tile" target="_blank" href="https://www.facebook.com/mtz.designs.studio/">
+        <a class="tile" target="_blank" rel="noopener" href="https://www.facebook.com/mtz.designs.studio/">
           <div class="ico">f</div>
           <div>
             <b>Facebook</b>
@@ -291,7 +331,7 @@
           </div>
         </a>
 
-        <a class="tile" target="_blank" href="https://www.instagram.com/mtz.designs.studio">
+        <a class="tile" target="_blank" rel="noopener" href="https://www.instagram.com/mtz.designs.studio">
           <div class="ico">ig</div>
           <div>
             <b>Instagram</b>
@@ -299,54 +339,54 @@
           </div>
         </a>
 
-        <a class="tile" target="_blank"
-           href="https://linktr.ee/mtz.designs.studio?utm_source=linktree_profile_share&ltsid=1683ef26-dfe2-4b4a-b020-9ece38bde9c9">
-          <div class="ico">↗</div>
+        <a class="tile" target="_blank" rel="noopener"
+           href="https://docs.google.com/forms/d/e/1FAIpQLSeZZUdsGD3stz_WkiL8QwCiDGeHLVcNo_EZthaX6XdCUwPdbg/viewform?pli=1">
+          <div class="ico">📝</div>
           <div>
-            <b>Linktree</b>
-            <small>Todo en un solo lugar</small>
+            <b>Formulario</b>
+            <small>Cotización en línea</small>
           </div>
         </a>
       </div>
     </section>
 
-    <!-- Sección: Fotos reales (pocas, elegantes) -->
     <section class="section">
-      <h2>Trabajos reales</h2>
-      <p>Una muestra rápida. Sin saturar la página, pero suficiente para generar confianza.</p>
+      <h2>Trabajos reales (muestra rápida)</h2>
+      <p>Agrega 3–6 fotos reales para reforzar confianza sin saturar la página.</p>
 
       <div class="gallery">
         <!-- Sube tus fotos a /assets/img/ y cambia los nombres aquí -->
         <div class="ph">
-          <img src="assets/img/proyecto-1.jpg" alt="Cocina a medida MTZ Designs Studio">
+          <img src="assets/img/proyecto-1.jpg" alt="Proyecto real - Cocina a medida MTZ Designs Studio">
           <div class="cap">Cocina</div>
         </div>
         <div class="ph">
-          <img src="assets/img/proyecto-2.jpg" alt="Clóset a medida MTZ Designs Studio">
+          <img src="assets/img/proyecto-2.jpg" alt="Proyecto real - Clóset a medida MTZ Designs Studio">
           <div class="cap">Clóset</div>
         </div>
         <div class="ph">
-          <img src="assets/img/proyecto-3.jpg" alt="Mueble a medida MTZ Designs Studio">
+          <img src="assets/img/proyecto-3.jpg" alt="Proyecto real - Mueble a medida MTZ Designs Studio">
           <div class="cap">Mueble</div>
         </div>
       </div>
+
+      <div class="fine">
+        Tip: usa fotos con buena luz y encuadre limpio. Una cocina + un clóset + un mueble especial = credibilidad inmediata.
+      </div>
     </section>
 
-    <!-- Sección: Catálogo Arauco (opcional) -->
     <section class="section">
-      <h2>Catálogo de colores (Arauco)</h2>
-      <p>
-        Solo si deseas ver opciones de tonos y acabados de melamina.
-        (Es un PDF informativo, no es una tienda.)
-      </p>
+      <h2>Catálogo de colores (Arauco) — opcional</h2>
+      <p>Solo si deseas ver tonos y acabados de melamina. PDF informativo.</p>
 
       <div class="cta-row">
-        <a class="btn btn-ghost" target="_blank" href="assets/pdfs/catalogo-arauco-melamina.pdf">
+        <a class="btn btn-ghost" target="_blank" rel="noopener"
+           href="https://drive.google.com/uc?export=download&id=1r_qx58lALa7WYuhmp6lLMDDq_DO6xrHW">
           Ver catálogo Arauco (PDF)
         </a>
 
-        <a class="btn btn-wa" target="_blank"
-           href="https://wa.me/526562467313?text=Hola%20MTZ%20Designs%20Studio%2C%20quiero%20ver%20opciones%20de%20colores%20Arauco%20para%20mi%20proyecto.">
+        <a class="btn btn-wa" target="_blank" rel="noopener"
+           href="https://wa.me/526562467313?text=Hola%20MTZ%20Designs%20Studio%2C%20quiero%20asesor%C3%ADa%20para%20elegir%20colores%20y%20acabados%20Arauco%20para%20mi%20proyecto.">
           Quiero asesoría de colores
         </a>
       </div>
@@ -357,5 +397,12 @@
     </footer>
 
   </div>
+
+  <!-- WhatsApp flotante -->
+  <a class="wa-float" target="_blank" rel="noopener"
+     href="https://wa.me/526562467313?text=Hola%20MTZ%20Designs%20Studio%2C%20quiero%20cotizar%20un%20proyecto.">
+    <span class="wa-dot" aria-hidden="true"></span>
+    WhatsApp
+  </a>
 </body>
 </html>
