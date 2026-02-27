@@ -2,70 +2,151 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MTZ Designs Studio | Cocinas y Clósets a Medida</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>MTZ Designs Studio | Cocinas y Clósets a Medida en Ciudad Juárez</title>
 
-  <meta name="description" content="Cocinas, clósets y muebles a medida en Ciudad Juárez. Diseño 3D profesional, fabricación propia e instalación especializada. Cotiza por WhatsApp o formulario en línea." />
+  <meta name="description" content="MTZ Designs Studio: cocinas, clósets y muebles a medida en Ciudad Juárez. Diseño 3D profesional, fabricación propia e instalación especializada. Cotiza por WhatsApp o formulario." />
   <meta name="theme-color" content="#0b1220" />
+
+  <!-- Opcional: favicon (sube assets/brand/favicon.png) -->
+  <link rel="icon" type="image/png" href="assets/brand/favicon.png" />
 
   <style>
     :root{
-      --bg:#0b1220;
-      --card:#0f1a2e;
-      --muted:#9fb0c8;
-      --text:#eaf0ff;
-      --line:rgba(255,255,255,.10);
-      --brand:#2563eb;      /* azul */
-      --wa:#22c55e;         /* whatsapp */
-      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --bg:#070b14;
+      --panel: rgba(18, 26, 44, .70);
+      --panel2: rgba(12, 18, 34, .55);
+      --line: rgba(255,255,255,.10);
+      --text: #eef4ff;
+      --muted:#a8b7d1;
+
+      --brand:#2b6bff; /* azul MTZ aproximado */
+      --brand2:#1b3fba;
+      --wa:#22c55e;
+
       --radius: 18px;
-      --max: 1100px;
+      --shadow: 0 18px 45px rgba(0,0,0,.45);
+      --max: 1120px;
+
+      --pad: 24px;
     }
+
     *{box-sizing:border-box}
+    html,body{height:100%}
     body{
       margin:0;
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, Helvetica, sans-serif;
-      background: radial-gradient(1200px 600px at 20% 10%, rgba(37,99,235,.25), transparent 60%),
-                  radial-gradient(900px 500px at 90% 0%, rgba(34,197,94,.18), transparent 55%),
-                  var(--bg);
-      color:var(--text);
+      background:
+        radial-gradient(1100px 600px at 15% 5%, rgba(43,107,255,.25), transparent 60%),
+        radial-gradient(950px 520px at 90% 0%, rgba(34,197,94,.14), transparent 60%),
+        radial-gradient(900px 500px at 60% 110%, rgba(43,107,255,.12), transparent 60%),
+        var(--bg);
+      color: var(--text);
+      overflow-x:hidden;
     }
     a{color:inherit}
-    .wrap{max-width:var(--max); margin:0 auto; padding:24px}
+    .wrap{max-width:var(--max); margin:0 auto; padding: var(--pad);}
 
-    /* Top bar */
-    .topbar{
-      display:flex; align-items:center; justify-content:space-between;
-      gap:14px; padding:14px 18px;
+    /* Top Nav */
+    .nav{
+      position:sticky;
+      top: 14px;
+      z-index: 40;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 14px;
+
+      padding: 12px 14px;
       border:1px solid var(--line);
-      background:rgba(15,26,46,.55);
-      backdrop-filter: blur(10px);
       border-radius: 999px;
+      background: rgba(12,18,34,.55);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 12px 30px rgba(0,0,0,.25);
     }
     .brand{
-      display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:.2px;
+      display:flex;
+      align-items:center;
+      gap: 12px;
+      min-width: 220px;
     }
-    .logo{
-      width:34px; height:34px; border-radius:10px;
-      background: linear-gradient(135deg, rgba(37,99,235,.95), rgba(34,197,94,.85));
-      box-shadow: var(--shadow);
+    .brand img{
+      width: 42px;
+      height: 42px;
+      object-fit: contain;
+      border-radius: 12px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid var(--line);
+      padding: 6px;
     }
-    .pill{
-      display:flex; gap:10px; flex-wrap:wrap; align-items:center; justify-content:flex-end;
-      font-size:13px; color:var(--muted);
+    .brand .name{
+      display:flex;
+      flex-direction:column;
+      line-height:1.1;
     }
-    .pill span{
-      border:1px solid var(--line);
-      padding:6px 10px; border-radius:999px;
-      background: rgba(11,18,32,.35);
+    .brand .name strong{
+      font-size: 14px;
+      letter-spacing:.2px;
+    }
+    .brand .name span{
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .nav-links{
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content:flex-end;
+    }
+    .chip{
+      font-size: 12px;
+      color: var(--muted);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 7px 10px;
+      background: rgba(255,255,255,.04);
+      white-space: nowrap;
+    }
+    .nav-cta{
+      display:flex;
+      gap: 10px;
+      align-items:center;
+    }
+
+    /* Buttons */
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap: 10px;
+
+      text-decoration:none;
+      font-weight: 800;
+      padding: 12px 14px;
+      border-radius: 14px;
+      border: 1px solid transparent;
+      transition: transform .12s ease, opacity .12s ease, border .12s ease;
+      white-space: nowrap;
+    }
+    .btn:hover{transform: translateY(-1px); opacity:.96}
+    .btn:active{transform: translateY(0px); opacity:.92}
+
+    .btn-primary{background: linear-gradient(180deg, rgba(43,107,255,.98), rgba(27,63,186,.98));}
+    .btn-wa{background: rgba(34,197,94,.95); color:#06130b;}
+    .btn-ghost{
+      background: rgba(255,255,255,.04);
+      border-color: var(--line);
+      color: var(--text);
     }
 
     /* Hero */
     .hero{
-      margin-top:18px;
-      border:1px solid var(--line);
-      background: linear-gradient(180deg, rgba(15,26,46,.85), rgba(15,26,46,.55));
+      margin-top: 18px;
+      border: 1px solid var(--line);
       border-radius: var(--radius);
+      background: linear-gradient(180deg, rgba(18,26,44,.75), rgba(12,18,34,.55));
       box-shadow: var(--shadow);
       overflow:hidden;
       position:relative;
@@ -73,186 +154,258 @@
     .hero::before{
       content:"";
       position:absolute;
-      inset:-2px;
-      background: radial-gradient(700px 350px at 20% 0%, rgba(37,99,235,.25), transparent 60%),
-                  radial-gradient(650px 320px at 95% 10%, rgba(34,197,94,.18), transparent 55%);
+      inset: -2px;
+      background:
+        radial-gradient(700px 380px at 15% 10%, rgba(43,107,255,.18), transparent 60%),
+        radial-gradient(650px 320px at 95% 15%, rgba(34,197,94,.10), transparent 60%);
       pointer-events:none;
-      opacity:.9;
+      opacity: 1;
     }
+
     .hero-inner{
       position:relative;
       display:grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap:18px;
-      padding:34px;
-      align-items:center;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 18px;
+      padding: 34px;
+      align-items: center;
     }
-    .h-title{
-      font-size: 42px;
-      margin:0 0 10px 0;
-      line-height:1.08;
-    }
-    .h-sub{
-      margin:0 0 18px 0;
-      color:var(--muted);
-      font-size: 16px;
-      line-height:1.55;
-    }
-    .cta-row{
-      display:flex; gap:12px; flex-wrap:wrap;
-      margin-top:12px;
-    }
-    .btn{
-      display:inline-flex; align-items:center; justify-content:center;
-      gap:10px;
-      padding:14px 16px;
-      border-radius: 14px;
-      text-decoration:none;
-      font-weight:800;
-      border:1px solid transparent;
-      transition: transform .12s ease, opacity .12s ease, border .12s ease;
-      min-width: 220px;
-      white-space:nowrap;
-    }
-    .btn:hover{transform: translateY(-1px); opacity:.95}
-    .btn:active{transform: translateY(0px); opacity:.9}
 
-    .btn-wa{background: rgba(34,197,94,.95); color:#06130b;}
-    .btn-form{background: rgba(37,99,235,.95); color:#eef4ff;}
-    .btn-ghost{
-      background: rgba(11,18,32,.25);
-      border-color: var(--line);
-      color: var(--text);
-      min-width: 180px;
+    .kicker{
+      display:inline-flex;
+      gap: 10px;
+      align-items:center;
+      padding: 8px 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255,255,255,.04);
+      color: var(--muted);
+      font-size: 12px;
+      width: fit-content;
+    }
+    .kicker .dot{
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: rgba(34,197,94,.95);
+      box-shadow: 0 0 0 4px rgba(34,197,94,.14);
+    }
+
+    h1{
+      margin: 12px 0 10px;
+      font-size: 44px;
+      line-height: 1.06;
+      letter-spacing: -.4px;
+    }
+    .sub{
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.65;
+      max-width: 56ch;
+    }
+
+    .hero-ctas{
+      display:flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 6px;
+    }
+
+    .trust{
+      margin-top: 18px;
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+    .trust .t{
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      border-radius: 16px;
+      padding: 12px;
+      text-align:left;
+    }
+    .trust .t strong{
+      display:block;
+      font-size: 13px;
+      margin-bottom: 2px;
+    }
+    .trust .t span{
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.45;
     }
 
     .hero-card{
-      border:1px solid var(--line);
-      background: rgba(11,18,32,.35);
-      border-radius: 16px;
-      padding:18px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(7,11,20,.35);
+      padding: 18px;
     }
-    .hero-card h3{margin:0 0 10px 0; font-size:16px}
-    .hero-card ul{margin:0; padding-left:18px; color:var(--muted); line-height:1.6}
-    .hero-card li{margin:6px 0}
+    .hero-card h3{
+      margin: 0 0 10px;
+      font-size: 14px;
+      letter-spacing:.2px;
+      color: var(--text);
+    }
+    .hero-card ul{
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 13px;
+    }
+    .hero-card li{margin: 6px 0}
+    .fine{
+      margin-top: 14px;
+      padding-top: 12px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.55;
+    }
 
     /* Sections */
     .section{
-      margin-top:18px;
-      border:1px solid var(--line);
-      background: rgba(15,26,46,.45);
+      margin-top: 18px;
+      border: 1px solid var(--line);
       border-radius: var(--radius);
-      padding:26px;
+      background: var(--panel2);
       box-shadow: var(--shadow);
+      padding: 26px;
     }
-    .section h2{margin:0 0 8px 0; font-size:22px}
-    .section p{margin:0 0 16px 0; color:var(--muted); line-height:1.6}
+    .section h2{
+      margin: 0 0 8px;
+      font-size: 22px;
+      letter-spacing: -.2px;
+    }
+    .section p{
+      margin: 0 0 16px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
 
     /* Link tiles */
-    .grid3{
+    .grid{
       display:grid;
       grid-template-columns: repeat(3, 1fr);
-      gap:12px;
+      gap: 12px;
     }
     .tile{
-      border:1px solid var(--line);
-      background: rgba(11,18,32,.35);
-      border-radius: 16px;
-      padding:14px;
       display:flex;
-      gap:12px;
+      gap: 12px;
       align-items:center;
+      padding: 14px;
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.04);
       text-decoration:none;
-      transition: transform .12s ease, opacity .12s ease, border .12s ease;
-      min-height: 76px;
+      transition: transform .12s ease, opacity .12s ease;
+      min-height: 78px;
     }
-    .tile:hover{transform: translateY(-1px); opacity:.95}
+    .tile:hover{transform: translateY(-1px); opacity:.96}
     .ico{
-      width:42px; height:42px; border-radius:14px;
-      display:grid; place-items:center;
-      background: rgba(255,255,255,.06);
-      border:1px solid var(--line);
-      font-weight:900;
-      text-transform:lowercase;
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      display:grid;
+      place-items:center;
+      border: 1px solid var(--line);
+      background: rgba(0,0,0,.18);
+      font-weight: 900;
     }
-    .tile b{display:block; margin-bottom:2px}
-    .tile small{color:var(--muted)}
+    .tile b{display:block; margin-bottom: 2px;}
+    .tile small{color: var(--muted);}
 
-    /* Gallery */
+    /* Mini Gallery */
     .gallery{
       display:grid;
       grid-template-columns: repeat(3, 1fr);
-      gap:12px;
+      gap: 12px;
     }
-    .ph{
+    .shot{
       border:1px solid var(--line);
       border-radius: 16px;
       overflow:hidden;
-      background: rgba(11,18,32,.35);
+      background: rgba(255,255,255,.03);
       aspect-ratio: 4 / 3;
       position:relative;
     }
-    .ph img{
-      width:100%; height:100%;
+    .shot img{
+      width:100%;
+      height:100%;
       object-fit: cover;
       display:block;
     }
-    .ph .cap{
-      position:absolute; left:10px; bottom:10px;
-      padding:8px 10px; border-radius: 999px;
+    .cap{
+      position:absolute;
+      left:10px;
+      bottom:10px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      border:1px solid rgba(255,255,255,.16);
       background: rgba(0,0,0,.45);
-      border:1px solid rgba(255,255,255,.14);
-      font-size:12px; color:#eaf0ff;
-      backdrop-filter: blur(6px);
+      backdrop-filter: blur(8px);
+      font-size: 12px;
+      color: var(--text);
     }
 
-    /* Fine print & footer */
-    .fine{
-      margin-top:14px;
-      color: var(--muted);
-      font-size: 12px;
-      line-height:1.5;
-      border-top:1px solid var(--line);
-      padding-top:12px;
+    /* Bottom bar for mobile (conversion booster) */
+    .mobilebar{
+      display:none;
+      position:fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
+      background: rgba(7,11,20,.78);
+      border-top: 1px solid var(--line);
+      backdrop-filter: blur(12px);
+      z-index: 60;
     }
+    .mobilebar .row{
+      max-width: var(--max);
+      margin: 0 auto;
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .mobilebar .btn{
+      width: 100%;
+      padding: 14px 12px;
+      border-radius: 16px;
+      font-size: 14px;
+    }
+
     footer{
-      margin:18px 0 30px;
+      margin: 18px 0 80px;
       color: var(--muted);
       text-align:center;
       font-size: 13px;
+      line-height: 1.6;
     }
 
-    /* WhatsApp floating */
-    .wa-float{
-      position:fixed;
-      right:16px;
-      bottom:16px;
-      z-index:50;
-      text-decoration:none;
-      background: rgba(34,197,94,.98);
-      color:#06130b;
-      border-radius: 999px;
-      padding: 12px 14px;
-      font-weight:900;
-      box-shadow: 0 12px 30px rgba(0,0,0,.35);
-      border: 1px solid rgba(255,255,255,.16);
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-    }
-    .wa-dot{
-      width:10px; height:10px; border-radius:999px;
-      background:#06130b;
-      opacity:.85;
-    }
-
-    @media (max-width: 920px){
-      .hero-inner{grid-template-columns: 1fr; padding:24px}
-      .h-title{font-size: 34px}
-      .btn{min-width: 200px}
-      .grid3{grid-template-columns: 1fr}
+    /* Responsive */
+    @media (max-width: 980px){
+      h1{font-size: 36px}
+      .hero-inner{grid-template-columns: 1fr; padding: 24px}
+      .trust{grid-template-columns: 1fr; }
+      .grid{grid-template-columns: 1fr}
       .gallery{grid-template-columns: 1fr}
-      .topbar{border-radius: 18px}
+    }
+    @media (max-width: 640px){
+      .wrap{padding: 16px}
+      .nav{
+        border-radius: 18px;
+        padding: 12px;
+        top: 10px;
+      }
+      .nav-links{display:none;} /* simplifica arriba en móvil */
+      .nav-cta .btn-ghost{display:none;}
+      h1{font-size: 30px}
+      .btn{min-width: 0}
+      .mobilebar{display:block;}
+      footer{margin-bottom: 130px;} /* espacio para la barra móvil */
     }
   </style>
 </head>
@@ -260,45 +413,76 @@
 <body>
   <div class="wrap">
 
-    <div class="topbar">
+    <!-- NAV -->
+    <div class="nav">
       <div class="brand">
-        <div class="logo" aria-hidden="true"></div>
-        <div>MTZ Designs Studio</div>
+        <!-- Sube tu logo a: assets/brand/logo.png -->
+        <img src="assets/brand/logo.png" alt="Logo MTZ Designs Studio" />
+        <div class="name">
+          <strong>MTZ Designs Studio</strong>
+          <span>Cocinas y clósets a medida</span>
+        </div>
       </div>
-      <div class="pill">
-        <span>Ciudad Juárez</span>
-        <span>Diseño 3D</span>
-        <span>Fabricación + Instalación</span>
+
+      <div class="nav-links">
+        <span class="chip">Ciudad Juárez</span>
+        <span class="chip">Diseño 3D</span>
+        <span class="chip">Fabricación + Instalación</span>
+      </div>
+
+      <div class="nav-cta">
+        <a class="btn btn-ghost" target="_blank" rel="noopener"
+           href="https://linktr.ee/mtz.designs.studio?utm_source=linktree_profile_share&ltsid=1683ef26-dfe2-4b4a-b020-9ece38bde9c9">
+          Linktree
+        </a>
+        <a class="btn btn-wa" target="_blank" rel="noopener"
+           href="https://wa.me/526562467313?text=Hola%20MTZ%20Designs%20Studio%2C%20quiero%20cotizar%20un%20proyecto.%20%C2%BFMe%20pueden%20apoyar%20por%20favor%3F">
+          WhatsApp
+        </a>
       </div>
     </div>
 
+    <!-- HERO -->
     <section class="hero">
       <div class="hero-inner">
         <div>
-          <h1 class="h-title">Cocinas y Clósets a Medida</h1>
-          <p class="h-sub">
-            Diseño 3D profesional, fabricación propia e instalación especializada.
-            Enfoque premium y comunicación clara para que tu proyecto salga bien desde el inicio.
+          <div class="kicker"><span class="dot"></span> Atención directa y cotización clara</div>
+          <h1>Diseño y fabricación profesional a medida</h1>
+          <p class="sub">
+            Cocinas, clósets y muebles personalizados con <b>diseño 3D</b>, fabricación propia e instalación especializada.
+            Landing oficial para cotizar y ver nuestras redes principales.
           </p>
 
-          <div class="cta-row">
-            <!-- CTA 1: WhatsApp (principal) -->
+          <div class="hero-ctas">
             <a class="btn btn-wa" target="_blank" rel="noopener"
                href="https://wa.me/526562467313?text=Hola%20MTZ%20Designs%20Studio%2C%20quiero%20cotizar%20un%20proyecto.%20%C2%BFMe%20pueden%20apoyar%20por%20favor%3F">
               Cotizar por WhatsApp
             </a>
 
-            <!-- CTA 2: Form -->
-            <a class="btn btn-form" target="_blank" rel="noopener"
+            <a class="btn btn-primary" target="_blank" rel="noopener"
                href="https://docs.google.com/forms/d/e/1FAIpQLSeZZUdsGD3stz_WkiL8QwCiDGeHLVcNo_EZthaX6XdCUwPdbg/viewform?pli=1">
-              Llenar Formulario (rápido)
+              Llenar Formulario (2 min)
             </a>
 
-            <!-- CTA secundario: Linktree -->
             <a class="btn btn-ghost" target="_blank" rel="noopener"
-               href="https://linktr.ee/mtz.designs.studio?utm_source=linktree_profile_share&ltsid=1683ef26-dfe2-4b4a-b020-9ece38bde9c9">
-              Ver todos los enlaces
+               href="https://www.facebook.com/mtz.designs.studio/">
+              Ver Facebook
             </a>
+          </div>
+
+          <div class="trust">
+            <div class="t">
+              <strong>Diseño 3D</strong>
+              <span>Visualiza tu proyecto antes de fabricar.</span>
+            </div>
+            <div class="t">
+              <strong>Fabricación propia</strong>
+              <span>Control de calidad y acabados.</span>
+            </div>
+            <div class="t">
+              <strong>Instalación profesional</strong>
+              <span>Trabajo limpio y detallado.</span>
+            </div>
           </div>
 
           <div class="fine">
@@ -307,27 +491,28 @@
         </div>
 
         <div class="hero-card">
-          <h3>Qué puedes esperar</h3>
+          <h3>Qué hacer ahora (recomendado)</h3>
           <ul>
-            <li>Diseño 3D según tu espacio y necesidades.</li>
-            <li>Opciones de acabados y herrajes según presupuesto.</li>
-            <li>Instalación profesional y ordenada.</li>
-            <li>Atención local en Ciudad Juárez.</li>
+            <li>Si ya tienes medidas o fotos: WhatsApp.</li>
+            <li>Si quieres cotización rápida: formulario.</li>
+            <li>Para ver proyectos: Facebook / Instagram.</li>
+            <li>Para colores: catálogo Arauco (opcional).</li>
           </ul>
         </div>
       </div>
     </section>
 
+    <!-- LINKS -->
     <section class="section">
       <h2>Enlaces oficiales</h2>
-      <p>Para ver proyectos, avances y reseñas, visita nuestras páginas principales.</p>
+      <p>Accede a nuestras redes principales y a la cotización en línea.</p>
 
-      <div class="grid3">
+      <div class="grid">
         <a class="tile" target="_blank" rel="noopener" href="https://www.facebook.com/mtz.designs.studio/">
           <div class="ico">f</div>
           <div>
             <b>Facebook</b>
-            <small>Proyectos y contacto</small>
+            <small>Proyectos, reseñas y contacto</small>
           </div>
         </a>
 
@@ -335,7 +520,7 @@
           <div class="ico">ig</div>
           <div>
             <b>Instagram</b>
-            <small>Galería rápida</small>
+            <small>Galería y avances</small>
           </div>
         </a>
 
@@ -344,28 +529,56 @@
           <div class="ico">📝</div>
           <div>
             <b>Formulario</b>
-            <small>Cotización en línea</small>
+            <small>Cotización en línea (rápido)</small>
+          </div>
+        </a>
+
+        <a class="tile" target="_blank" rel="noopener"
+           href="https://linktr.ee/mtz.designs.studio?utm_source=linktree_profile_share&ltsid=1683ef26-dfe2-4b4a-b020-9ece38bde9c9">
+          <div class="ico">↗</div>
+          <div>
+            <b>Linktree</b>
+            <small>Todos los enlaces en un lugar</small>
+          </div>
+        </a>
+
+        <a class="tile" target="_blank" rel="noopener"
+           href="https://drive.google.com/uc?export=download&id=1r_qx58lALa7WYuhmp6lLMDDq_DO6xrHW">
+          <div class="ico">PDF</div>
+          <div>
+            <b>Catálogo Arauco</b>
+            <small>Colores y acabados (opcional)</small>
+          </div>
+        </a>
+
+        <a class="tile" target="_blank" rel="noopener"
+           href="https://wa.me/526562467313?text=Hola%20MTZ%20Designs%20Studio%2C%20quiero%20cotizar%20un%20proyecto.%20%C2%BFMe%20pueden%20apoyar%20por%20favor%3F">
+          <div class="ico">WA</div>
+          <div>
+            <b>WhatsApp</b>
+            <small>Atención directa</small>
           </div>
         </a>
       </div>
     </section>
 
+    <!-- MINI GALLERY -->
     <section class="section">
-      <h2>Trabajos reales (muestra rápida)</h2>
-      <p>Agrega 3–6 fotos reales para reforzar confianza sin saturar la página.</p>
+      <h2>Muestra rápida (trabajos reales)</h2>
+      <p>Sube 3 fotos reales para reforzar confianza sin saturar la página.</p>
 
       <div class="gallery">
-        <!-- Sube tus fotos a /assets/img/ y cambia los nombres aquí -->
-        <div class="ph">
-          <img src="assets/img/proyecto-1.jpg" alt="Proyecto real - Cocina a medida MTZ Designs Studio">
+        <!-- Sube tus fotos a: assets/img/proyecto-1.jpg, proyecto-2.jpg, proyecto-3.jpg -->
+        <div class="shot">
+          <img src="assets/img/proyecto-1.jpg" alt="Proyecto real MTZ - Cocina a medida">
           <div class="cap">Cocina</div>
         </div>
-        <div class="ph">
-          <img src="assets/img/proyecto-2.jpg" alt="Proyecto real - Clóset a medida MTZ Designs Studio">
+        <div class="shot">
+          <img src="assets/img/proyecto-2.jpg" alt="Proyecto real MTZ - Clóset a medida">
           <div class="cap">Clóset</div>
         </div>
-        <div class="ph">
-          <img src="assets/img/proyecto-3.jpg" alt="Proyecto real - Mueble a medida MTZ Designs Studio">
+        <div class="shot">
+          <img src="assets/img/proyecto-3.jpg" alt="Proyecto real MTZ - Mueble a medida">
           <div class="cap">Mueble</div>
         </div>
       </div>
@@ -375,34 +588,26 @@
       </div>
     </section>
 
-    <section class="section">
-      <h2>Catálogo de colores (Arauco) — opcional</h2>
-      <p>Solo si deseas ver tonos y acabados de melamina. PDF informativo.</p>
-
-      <div class="cta-row">
-        <a class="btn btn-ghost" target="_blank" rel="noopener"
-           href="https://drive.google.com/uc?export=download&id=1r_qx58lALa7WYuhmp6lLMDDq_DO6xrHW">
-          Ver catálogo Arauco (PDF)
-        </a>
-
-        <a class="btn btn-wa" target="_blank" rel="noopener"
-           href="https://wa.me/526562467313?text=Hola%20MTZ%20Designs%20Studio%2C%20quiero%20asesor%C3%ADa%20para%20elegir%20colores%20y%20acabados%20Arauco%20para%20mi%20proyecto.">
-          Quiero asesoría de colores
-        </a>
-      </div>
-    </section>
-
     <footer>
-      MTZ Designs Studio · Ciudad Juárez · WhatsApp: 656 246 7313
+      <div><b>MTZ Designs Studio</b> · Ciudad Juárez, Chihuahua</div>
+      <div>WhatsApp: 656 246 7313 · Cotización: Google Forms</div>
+      <div style="margin-top:6px;">Precios sujetos a medidas, materiales y diseño.</div>
     </footer>
 
   </div>
 
-  <!-- WhatsApp flotante -->
-  <a class="wa-float" target="_blank" rel="noopener"
-     href="https://wa.me/526562467313?text=Hola%20MTZ%20Designs%20Studio%2C%20quiero%20cotizar%20un%20proyecto.">
-    <span class="wa-dot" aria-hidden="true"></span>
-    WhatsApp
-  </a>
+  <!-- Barra móvil (convierte más en celular/tablet) -->
+  <div class="mobilebar" role="navigation" aria-label="Acciones rápidas">
+    <div class="row">
+      <a class="btn btn-wa" target="_blank" rel="noopener"
+         href="https://wa.me/526562467313?text=Hola%20MTZ%20Designs%20Studio%2C%20quiero%20cotizar%20un%20proyecto.%20%C2%BFMe%20pueden%20apoyar%20por%20favor%3F">
+        WhatsApp
+      </a>
+      <a class="btn btn-primary" target="_blank" rel="noopener"
+         href="https://docs.google.com/forms/d/e/1FAIpQLSeZZUdsGD3stz_WkiL8QwCiDGeHLVcNo_EZthaX6XdCUwPdbg/viewform?pli=1">
+        Formulario
+      </a>
+    </div>
+  </div>
 </body>
 </html>
